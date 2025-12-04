@@ -114,7 +114,7 @@ mcp = FastMCP("NetBox")
 netbox = None
 
 
-def validate_filters(filters: dict) -> None:
+def validate_filters(filters: dict[str, Any]) -> None:
     """
     Validate that filters don't use multi-hop relationship traversal.
 
@@ -253,7 +253,7 @@ def validate_filters(filters: dict) -> None:
 )
 def netbox_get_objects(
     object_type: str,
-    filters: dict,
+    filters: dict[str, Any],
     fields: list[str] | None = None,
     brief: bool = False,
     limit: Annotated[float, Field(default=5.0, ge=1, le=100)] = 5.0,
@@ -347,7 +347,7 @@ def netbox_get_object_by_id(
 
 
 @mcp.tool
-def netbox_get_changelogs(filters: dict):
+def netbox_get_changelogs(filters: dict[str, Any]):
     """
     Get object change records (changelogs) from NetBox based on filters.
 
@@ -461,7 +461,7 @@ def netbox_search_objects(
     object_types: list[str] | None = None,
     fields: list[str] | None = None,
     limit: Annotated[float, Field(default=5.0, ge=1, le=100)] = 5.0,
-) -> dict[str, list[dict]]:
+) -> dict[str, list[dict[str, Any]]]:
     """
     Perform global search across NetBox infrastructure.
     """
