@@ -254,11 +254,11 @@ def validate_filters(filters: dict[str, Any]) -> None:
 def netbox_get_objects(
     object_type: str,
     filters: dict[str, Any],
-    fields: list[str] | None = None,
+    fields: list[str] = [],
     brief: bool = False,
     limit: Annotated[float, Field(default=5.0, ge=1.0, le=100.0)] = 5.0,
     offset: Annotated[float, Field(default=0.0, ge=0.0)] = 0.0,
-    ordering: str | list[str] | None = None,
+    ordering: str = "",
 ):
     """
     Get objects from NetBox based on their type and filters
@@ -299,7 +299,7 @@ def netbox_get_objects(
 def netbox_get_object_by_id(
     object_type: str,
     object_id: float,
-    fields: list[str] | None = None,
+    fields: list[str] = [],
     brief: bool = False,
 ):
     """
@@ -458,14 +458,14 @@ def netbox_get_changelogs(filters: dict[str, Any]):
 )
 def netbox_search_objects(
     query: str,
-    object_types: list[str] | None = None,
-    fields: list[str] | None = None,
+    object_types: list[str] = [],
+    fields: list[str] = [],
     limit: Annotated[float, Field(default=5.0, ge=1.0, le=100.0)] = 5.0,
 ) -> dict[str, list[dict[str, Any]]]:
     """
     Perform global search across NetBox infrastructure.
     """
-    if object_types is None:
+    if not object_types:
         search_types = DEFAULT_SEARCH_TYPES
     else:
         search_types = object_types
