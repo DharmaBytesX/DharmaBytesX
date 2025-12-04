@@ -256,8 +256,8 @@ def netbox_get_objects(
     filters: dict[str, Any],
     fields: list[str] | None = None,
     brief: bool = False,
-    limit: Annotated[float, Field(default=5.0, ge=1, le=100)] = 5.0,
-    offset: Annotated[float, Field(default=0.0, ge=0)] = 0.0,
+    limit: Annotated[float, Field(default=5.0, ge=1.0, le=100.0)] = 5.0,
+    offset: Annotated[float, Field(default=0.0, ge=0.0)] = 0.0,
     ordering: str | list[str] | None = None,
 ):
     """
@@ -460,7 +460,7 @@ def netbox_search_objects(
     query: str,
     object_types: list[str] | None = None,
     fields: list[str] | None = None,
-    limit: Annotated[float, Field(default=5.0, ge=1, le=100)] = 5.0,
+    limit: Annotated[float, Field(default=5.0, ge=1.0, le=100.0)] = 5.0,
 ) -> dict[str, list[dict[str, Any]]]:
     """
     Perform global search across NetBox infrastructure.
