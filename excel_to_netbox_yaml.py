@@ -135,7 +135,7 @@ def generate_device_type_yaml(row: pd.Series) -> Dict[str, Any]:
         device_type['weight_unit'] = weight_unit
 
     # Generate power ports based on PSU count
-    psu_count = safe_int(row.get('PSU', 0))
+    psu_count = safe_int(row.get('psu_count', 0))
     maximum_draw = safe_int(row.get('maximum_draw', 0))
 
     if psu_count > 0:

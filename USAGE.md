@@ -48,7 +48,7 @@ The script expects an Excel file with the following columns:
 - `comments`: Additional comments about the device
 - `weight`: Device weight
 - `weight_unit`: Unit of weight (e.g., "kg", "lb")
-- `PSU`: Number of power supply units
+- `psu_count`: Number of power supply units
 - `maximum_draw`: Maximum power draw in watts
 - `role`: Device role (if "Serveur", adds BMC interface)
 
